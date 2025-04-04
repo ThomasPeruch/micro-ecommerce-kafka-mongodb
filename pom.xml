@@ -11,7 +11,8 @@
 	<groupId>com.tperuch</groupId>
 	<artifactId>micro-ecommerce</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>micro-ecommerce</name>
+    <packaging>pom</packaging>
+    <name>micro-ecommerce</name>
 	<description>Demo project using Kafka, MongoDB for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -20,7 +21,10 @@
 	<developers>
 		<developer/>
 	</developers>
-	<scm>
+    <modules>
+        <module>gateway-service</module>
+    </modules>
+    <scm>
 		<connection/>
 		<developerConnection/>
 		<tag/>
