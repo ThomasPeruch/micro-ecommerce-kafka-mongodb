@@ -1,5 +1,7 @@
+package com.tperuch.commons.dto;
+
+
 public class OrderDTO {
-    private String orderId;
     private String customerName;
     private String product;
     private int quantity;
@@ -7,19 +9,10 @@ public class OrderDTO {
     public OrderDTO() {
     }
 
-    public OrderDTO(String orderId, String customerName, String product, int quantity) {
-        this.orderId = orderId;
+    public OrderDTO(String customerName, String product, int quantity) {
         this.customerName = customerName;
         this.product = product;
         this.quantity = quantity;
-    }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
     }
 
     public String getCustomerName() {
@@ -45,4 +38,14 @@ public class OrderDTO {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    @Override
+    public String toString() {
+        return "OrderDTO{" +
+                ", customerName='" + customerName + '\'' +
+                ", product='" + product + '\'' +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
+
