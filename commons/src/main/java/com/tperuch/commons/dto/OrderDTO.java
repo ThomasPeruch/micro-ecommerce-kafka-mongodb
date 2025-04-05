@@ -1,18 +1,17 @@
 package com.tperuch.commons.dto;
 
+import java.util.List;
 
 public class OrderDTO {
     private String customerName;
-    private String product;
-    private int quantity;
+    private List<ItemDTO> items;
 
     public OrderDTO() {
     }
 
-    public OrderDTO(String customerName, String product, int quantity) {
+    public OrderDTO(String customerName, List<ItemDTO> items, int quantity) {
         this.customerName = customerName;
-        this.product = product;
-        this.quantity = quantity;
+        this.items = items;
     }
 
     public String getCustomerName() {
@@ -23,28 +22,19 @@ public class OrderDTO {
         this.customerName = customerName;
     }
 
-    public String getProduct() {
-        return product;
+    public List<ItemDTO> getItems() {
+        return items;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setItems(List<ItemDTO> items) {
+        this.items = items;
     }
 
     @Override
     public String toString() {
         return "OrderDTO{" +
                 ", customerName='" + customerName + '\'' +
-                ", product='" + product + '\'' +
-                ", quantity=" + quantity +
+                ", product='" + items + '\'' +
                 '}';
     }
 }
