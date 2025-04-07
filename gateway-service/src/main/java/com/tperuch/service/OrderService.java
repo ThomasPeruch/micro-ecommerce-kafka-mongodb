@@ -3,6 +3,7 @@ package com.tperuch.service;
 import com.tperuch.commons.dto.OrderDTO;
 import com.tperuch.commons.entity.ItemEntity;
 import com.tperuch.commons.entity.OrderEntity;
+import com.tperuch.kafka.producer.KafkaProducer;
 import com.tperuch.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,18 @@ public class OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private KafkaProducer kafkaProducer;
 
     public OrderEntity saveOrder(OrderDTO orderDTO){
         OrderEntity orderEntity = mapFromDtoToEntity(orderDTO);
-        return orderRepository.insert(orderEntity);
+        OrderEntity orderEntitySaved = orderRepository.insert(orderEntity);
+        produceOrderEvent(orderEntitySaved);
+        return orderEntitySaved;
+    }
+
+    private void produceOrderEvent(OrderEntity orderEntitySaved) {
+        kafkaProducer.sendOrder(orderEntitySaved);
     }
 
     private static OrderEntity mapFromDtoToEntity(OrderDTO orderDTO) {
