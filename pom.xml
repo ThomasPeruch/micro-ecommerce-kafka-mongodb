@@ -24,6 +24,7 @@
     <modules>
         <module>gateway-service</module>
 		<module>commons</module>
+		<module>order-processor</module>
 	</modules>
     <scm>
 		<connection/>
