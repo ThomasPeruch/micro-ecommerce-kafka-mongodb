@@ -57,4 +57,14 @@ public class OrderEntity {
     public void setItems(List<ItemEntity> items) {
         this.items = items;
     }
+
+    @Override
+    public String toString() {
+        return "OrderEntity{" +
+                "id='" + id + '\'' +
+                ", receivedAt=" + receivedAt +
+                ", customerName='" + customerName + '\'' +
+                ", items=" + items +
+                '}';
+    }
 }
